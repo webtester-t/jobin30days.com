@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job in 30 Days™ - 7-Day Career Transformation Program</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: #1a237e;
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 28px;
+            color: #4fc3f7;
+        }
+        
+        .logo span {
+            color: white;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #4fc3f7 0%, #2979ff 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(41, 121, 255, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(41, 121, 255, 0.4);
+        }
+        
+        .cta-button.secondary {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);
+            box-shadow: 0 4px 15px rgba(255, 82, 82, 0.3);
+        }
+        
+        .cta-button.secondary:hover {
+            box-shadow: 0 6px 20px rgba(255, 82, 82, 0.4);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 35, 126, 0.85), rgba(26, 35, 126, 0.9)), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .price-container {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            display: inline-block;
+        }
+        
+        .current-price {
+            font-size: 42px;
+            font-weight: 800;
+            color: #4fc3f7;
+        }
+        
+        .original-price {
+            font-size: 24px;
+            text-decoration: line-through;
+            opacity: 0.7;
+            margin-left: 15px;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            color: #1a237e;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+            font-size: 18px;
+        }
+        
+        /* Program Details */
+        .program-days {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .day-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid #4fc3f7;
+        }
+        
+        .day-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .day-number {
+            display: inline-block;
+            background-color: #1a237e;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .day-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #1a237e;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: #f0f7ff;
+        }
+        
+        .testimonial-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .testimonial-content:before {
+            content: '"';
+            font-size: 60px;
+            color: #4fc3f7;
+            position: absolute;
+            left: -10px;
+            top: -20px;
+            opacity: 0.3;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #1a237e;
+            font-weight: bold;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .linkedin-icon {
+            color: #0077b5;
+            font-size: 20px;
+            margin-left: auto;
+        }
+        
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px 20px;
+            max-height: 500px;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 50px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .form-title h3 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a237e;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 28px;
+            color: #4fc3f7;
+            margin-bottom: 15px;
+        }
+        
+        .footer-links h4 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links ul li a:hover {
+            color: #4fc3f7;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b0b0b0;
+            font-size: 14px;
+        }
+        
+        /* CTA Sections */
+        .cta-section {
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .cta-section h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #1a237e;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 18px;
+            color: #666;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .contact-form {
+                padding: 30px;
+            }
+            
+            section {
+                padding: 50px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .current-price {
+                font-size: 36px;
+            }
+            
+            .day-card, .testimonial-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">JOB IN <span>30 DAYS</span>™</div>
+            <a href="#enroll" class="cta-button">Enroll Now</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Transform Your Career in Just 7 Days!</h1>
+            <p>A comprehensive, step-by-step program to accelerate your job search and land your dream role in 30 days</p>
+            
+            <div class="price-container">
+                <span class="current-price">£9,000</span>
+                <span class="original-price">£25,000</span>
+                <p>Limited time offer</p>
+            </div>
+            
+            <a href="#enroll" class="cta-button">Join Now for Only £9,000</a>
+        </div>
+    </section>
+
+    <!-- Program Details -->
+    <section id="program-details">
+        <div class="container">
+            <div class="section-title">
+                <h2>Your 7-Day Career Transformation Journey</h2>
+                <p>Our proven program provides a structured approach to job searching, covering everything from self-assessment to interview success</p>
+            </div>
+            
+            <div class="program-days">
+                <!-- Day 1 -->
+                <div class="day-card">
+                    <div class="day-number">1</div>
+                    <h3>Career Clarity & Challenges</h3>
+                    <p>Identify your ideal career path, understand market obstacles, and define your professional goals with actionable strategies. We'll help you align your skills with market demands.</p>
+                </div>
+                
+                <!-- Day 2 -->
+                <div class="day-card">
+                    <div class="day-number">2</div>
+                    <h3>CV Review and Improvement</h3>
+                    <p>Expert analysis of your resume, optimizing for keywords, structure, and readability to catch recruiters' attention. Learn what makes a CV stand out in today's competitive market.</p>
+                </div>
+                
+                <!-- Day 3 -->
+                <div class="day-card">
+                    <div class="day-number">3</div>
+                    <h3>LinkedIn Profile Optimisation</h3>
+                    <p>Revamp your headline, summary, and experience sections, build your professional brand, and enhance visibility. Transform your LinkedIn profile into a career magnet.</p>
+                </div>
+                
+                <!-- Day 4 -->
+                <div class="day-card">
+                    <div class="day-number">4</div>
+                    <h3>Smart Job-Search Strategies</h3>
+                    <p>Master advanced search techniques, uncover hidden job markets, and leverage platforms effectively for targeted applications. Learn where the best opportunities are hiding.</p>
+                </div>
+                
+                <!-- Day 5 -->
+                <div class="day-card">
+                    <div class="day-number">5</div>
+                    <h3>Application Tracking System (ATS)</h3>
+                    <p>Understand how ATS works, learn to beat the bots with optimized applications, and ensure your profile is noticed by human recruiters. Beat the system that eliminates 75% of applicants.</p>
+                </div>
+                
+                <!-- Day 6 -->
+                <div class="day-card">
+                    <div class="day-number">6</div>
+                    <h3>Interview Preparation</h3>
+                    <p>Master common interview questions, develop compelling behavioral answers, and refine your professional presence and communication. Build confidence for any interview scenario.</p>
+                </div>
+                
+                <!-- Day 7 -->
+                <div class="day-card">
+                    <div class="day-number">7</div>
+                    <h3>Mock Interview & Feedback</h3>
+                    <p>Participate in a realistic mock interview session with a professional, receive personalized constructive feedback, and build confidence. Final polish before the real thing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section 1 -->
+    <section class="cta-section">
+        <div class="container">
+            <h3>Ready to Transform Your Career?</h3>
+            <p>Join hundreds of professionals who have accelerated their job search with our proven 7-day program</p>
+            <a href="#enroll" class="cta-button">Enroll Now - Only £9,000</a>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Success Stories</h2>
+                <p>Hear from professionals who transformed their careers with our 7-day program</p>
+            </div>
+            
+            <div class="testimonial-cards">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>The 7-day program completely transformed my job search approach. I went from sending dozens of applications with no response to landing three interviews in two weeks. The ATS optimization module was particularly valuable.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SJ</div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Marketing Director</p>
+                        </div>
+                        <a href="#" class="linkedin-icon"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>I was stuck in my career for over two years. The career clarity session helped me identify what I really wanted, and the interview preparation gave me the confidence to ace my dream job interview. I started a new position just 3 weeks after completing the program.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <h4>Michael Rodriguez</h4>
+                            <p>Senior Software Engineer</p>
+                        </div>
+                        <a href="#" class="linkedin-icon"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>The LinkedIn optimization module alone was worth the investment. My profile views increased by 400% and I started getting inbound messages from recruiters. The structured approach of the 7-day program kept me focused and productive.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">EK</div>
+                        <div class="author-info">
+                            <h4>Emma Khan</h4>
+                            <p>Product Manager</p>
+                        </div>
+                        <a href="#" class="linkedin-icon"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section 2 -->
+    <section class="cta-section">
+        <div class="container">
+            <h3>Limited Seats Available</h3>
+            <p>Our personalized approach means we can only accept a limited number of participants each month. Secure your spot today.</p>
+            <a href="#enroll" class="cta-button secondary">Reserve My Seat</a>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Get answers to common questions about our 7-day career transformation program</p>
+            </div>
+            
+            <div class="faq-container">
+                <!-- FAQ 1 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How is this program different from other career coaching services?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our program is an intensive 7-day immersion that provides actionable strategies for each step of the job search process. Unlike generic coaching, we offer hands-on support with CV optimization, LinkedIn profile revamping, ATS-beating techniques, and mock interviews with personalized feedback.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is this program suitable for career changers?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. Day 1 focuses specifically on career clarity and identifying transferable skills. We help you articulate your value proposition to employers in a new industry and position your experience effectively for a career transition.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What kind of support will I receive during the program?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You'll receive daily one-on-one coaching sessions, personalized feedback on all your application materials, access to our exclusive job search resources, and direct communication with your career coach throughout the 7 days. We also provide 30 days of post-program support.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is your success rate?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>93% of our participants secure a job offer within 60 days of completing the program. The average time to offer is 34 days. We're confident in our methodology and offer a satisfaction guarantee for qualified participants who complete all program components.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 5 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I pay in installments?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer flexible payment options. You can choose to pay in two installments of £4,500 or three installments of £3,200. Please contact us for more details on payment plans.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="enroll">
+        <div class="container">
+            <div class="contact-form">
+                <div class="form-title">
+                    <h3>Start Your Career Transformation</h3>
+                    <p>Fill out the form below and we'll contact you within 24 hours to discuss the program</p>
+                </div>
+                
+                <form id="enrollment-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="current-role">Current Role/Industry</label>
+                            <input type="text" id="current-role" name="current-role" placeholder="e.g., Marketing Manager">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="query">Your Questions or Goals</label>
+                        <textarea id="query" name="query" placeholder="Tell us about your career goals or any questions you have about the program"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="cta-button" style="width: 100%; font-size: 18px; padding: 18px;">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">JOB IN <span>30 DAYS</span>™</div>
+                    <p>Our mission is to accelerate career transformations through structured, actionable programs that deliver measurable results. We've helped over 500 professionals land their dream jobs.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#program-details">Program Details</a></li>
+                        <li><a href="#testimonials">Success Stories</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#enroll">Enrollment</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@jobin30days.com</li>
+                        <li><i class="fas fa-phone"></i> +44 20 1234 5678</li>
+                        <li><i class="fas fa-map-marker-alt"></i> London, UK</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#" style="color: white; margin-right: 15px; font-size: 20px;"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: white; margin-right: 15px; font-size: 20px;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: white; margin-right: 15px; font-size: 20px;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: white; font-size: 20px;"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Job in 30 Days™. All rights reserved. | <a href="#" style="color: #4fc3f7;">Privacy Policy</a> | <a href="#" style="color: #4fc3f7;">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const faqItem = item.parentElement;
+                faqItem.classList.toggle('active');
+                
+                // Close other FAQ items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== faqItem) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+        
+        // Form Submission
+        document.getElementById('enrollment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const currentRole = document.getElementById('current-role').value;
+            const query = document.getElementById('query').value;
+            
+            // In a real implementation, you would send this data to a server
+            // For this demo, we'll just show an alert
+            alert(`Thank you ${name}! Your application has been submitted. We'll contact you at ${email} within 24 hours.`);
+            
+            // Reset form
+            document.getElementById('enrollment-form').reset();
+            
+            // Scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Enroll Now button functionality
+        document.querySelectorAll('a[href="#enroll"]').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#enroll') {
+                    e.preventDefault();
+                    const enrollSection = document.getElementById('enroll');
+                    window.scrollTo({
+                        top: enrollSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

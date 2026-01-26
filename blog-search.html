@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Blog | JOB IN 30 DAYS™</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a59ff;
+            --primary-dark: #6D28D9;
+            --primary-light: #8B5CF6;
+            --secondary: #F59E0B;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+            --gray: #6B7280;
+            --gray-light: #E5E7EB;
+            --success: #10B981;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: 28px;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Hero Section for Blog */
+        .blog-hero {
+            padding: 160px 0 80px;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.05) 0%, rgba(245, 158, 11, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%);
+            top: -100px;
+            right: -100px;
+        }
+        
+        .blog-hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .blog-hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .blog-hero p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Search Bar with Auto-complete */
+        .search-container {
+            max-width: 600px;
+            margin: 40px auto;
+            position: relative;
+        }
+        
+        .search-box {
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 16px 50px 16px 20px;
+            border: 2px solid var(--gray-light);
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: white;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+            font-size: 18px;
+        }
+        
+        .search-input:focus + .search-icon {
+            color: var(--primary);
+        }
+        
+        /* Auto-complete Dropdown */
+        .autocomplete-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: white;
+            border: 1px solid var(--gray-light);
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+        }
+        
+        .autocomplete-item {
+            padding: 12px 20px;
+            cursor: pointer;
+            border-bottom: 1px solid var(--gray-light);
+            transition: background-color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .autocomplete-item:last-child {
+            border-bottom: none;
+        }
+        
+        .autocomplete-item:hover {
+            background-color: rgba(124, 58, 237, 0.05);
+        }
+        
+        .autocomplete-item.active {
+            background-color: rgba(124, 58, 237, 0.1);
+        }
+        
+        .autocomplete-icon {
+            color: var(--primary);
+            font-size: 14px;
+        }
+        
+        .autocomplete-title {
+            font-weight: 500;
+            color: var(--dark);
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+        
+        .autocomplete-category {
+            font-size: 12px;
+            color: var(--gray);
+            display: inline-block;
+            background-color: rgba(124, 58, 237, 0.1);
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+        
+        .no-results {
+            padding: 20px;
+            text-align: center;
+            color: var(--gray);
+            font-style: italic;
+        }
+        
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .blog-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .blog-card-content {
+            padding: 25px;
+        }
+        
+        .blog-category {
+            display: inline-block;
+            background-color: rgba(124, 58, 237, 0.1);
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .blog-category.resume {
+            background-color: rgba(245, 158, 11, 0.1);
+            color: var(--secondary);
+        }
+        
+        .blog-category.interview {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+        
+        .blog-category.linkedin {
+            background-color: rgba(0, 119, 181, 0.1);
+            color: #0077B5;
+        }
+        
+        .blog-category.networking {
+            background-color: rgba(156, 39, 176, 0.1);
+            color: #9C27B0;
+        }
+        
+        .blog-card-content h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .blog-card-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-light);
+        }
+        
+        .blog-date {
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .blog-read-more {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .blog-read-more:hover {
+            color: var(--primary-dark);
+        }
+        
+        /* Search Results Info */
+        .search-results-info {
+            text-align: center;
+            margin: 20px 0;
+            color: var(--gray);
+        }
+        
+        .search-results-info strong {
+            color: var(--primary);
+        }
+        
+        /* Load More Button */
+        .load-more-container {
+            text-align: center;
+            margin: 60px 0 100px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(124, 58, 237, 0.2);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #D97706;
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-logo {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: 28px;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo span {
+            color: var(--secondary);
+        }
+        
+        .footer-links h4 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links ul li a {
+            color: #D1D5DB;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links ul li a:hover {
+            color: white;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 0px;
+            border-top: 0px solid rgba(255, 255, 255, 0.1);
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        .mobile-nav {
+            display: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .mobile-nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                display: none;
+                z-index: 999;
+            }
+            
+            .mobile-nav.active {
+                display: block;
+            }
+            
+            .mobile-nav ul {
+                list-style: none;
+            }
+            
+            .mobile-nav ul li {
+                margin-bottom: 15px;
+            }
+
+            .mobile-nav ul li a {
+                text-decoration: none;
+                color: var(--dark);
+                font-weight: 500;
+                font-size: 18px;
+                display: block;
+                padding: 3px 0;
+            }
+            .mobile-nav a:hover {
+                background-color: var(--gray-light);
+                padding: 5px;
+            }
+
+            .blog-hero {
+                padding: 140px 0 60px;
+            }
+            
+            .blog-hero h1 {
+                font-size: 36px;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .blog-hero h1 {
+                font-size: 32px;
+            }
+            
+            .btn {
+                padding: 14px 30px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="/index.html" target="_blank" class="logo">JOB IN <span>30</span> DAYS™</a>
+            
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="/index.html#workshop" target="_blank">Workshop</a></li>
+                    <li><a href="/index.html#program" target="_blank">Program</a></li>
+                    <li><a href="/index.html#testimonials" target="_blank">Testimonials</a></li>
+                    <li><a href="/index.html#mentor" target="_blank">Connect</a></li>
+                    <li><a href="/index.html#faq" target="_blank">FAQ</a></li>
+                    <li><a href="/blog-search.html" target="_blank" class="active">Blog</a></li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul>
+                    <li><a href="/index.html#workshop" target="_blank">Workshop</a></li>
+                    <li><a href="/index.html#program" target="_blank">Program</a></li>
+                    <li><a href="/index.html#testimonials" target="_blank">Testimonials</a></li>
+                    <li><a href="/index.html#mentor" target="_blank">Connect</a></li>
+                    <li><a href="/index.html#faq" target="_blank">FAQ</a></li>
+                    <li><a href="/blog-search.html" target="_blank" class="active">Blog</a></li>
+        </ul>
+    </div>
+
+
+    <!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="blog-hero-content">
+                <h1>Career Insights & Job Search Tips</h1>
+                <p>Expert advice, industry insights, and practical tips to accelerate your career growth and job search success</p>
+                
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" 
+                               class="search-input" 
+                               id="searchInput"
+                               placeholder="Search for career tips, resume advice, interview tips..."
+                               autocomplete="off">
+                        <div class="search-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="autocomplete-dropdown" id="autocompleteDropdown">
+                            <!-- Auto-complete items will be inserted here dynamically -->
+                        </div>
+                    </div>
+                    <div class="search-results-info" id="searchResultsInfo">
+                        Showing <strong>9</strong> articles
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Grid Section -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-grid" id="blogGrid">
+                <!-- Blog posts will be loaded dynamically -->
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="load-more-container">
+                <button class="btn" id="loadMoreBtn">Load More Articles</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">JOB IN <span>30</span> DAYS™</div>
+                    <p>Transform your career in just 7 days with our intensive job search program.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul style="list-style: none; color: #D1D5DB;">
+                        <li><a href="index.html" target="_blank" style="color: #D1D5DB; text-decoration: none;">Home</a></li>
+                          <li><a href="blog-search.html" target="_blank" style="color: #D1D5DB; text-decoration: none;">Blog</a></li>
+                          <li><a href="privacy-policy.html" target="_blank" style="color: #D1D5DB; text-decoration: none;">Privacy Policy</a></li>
+                          <li><a href="terms-of-service.html" target="_blank" style="color: #D1D5DB; text-decoration: none;">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                                <div class="social-icons" style="margin-bottom: 20px;">
+                        <a href="https://www.linkedin.com/company/jobin30dayscom/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/jobin30days" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/@jobin30days" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/jobin30days/" target="_blank"><i class="fab fa-instagram"></i></a>
+
+                    </div>
+
+                    <p>&copy; 2022-2026 JOB IN 30 DAYS™. All rights reserved. | <a href="privacy-policy.html" target="_blank" style="color: var(--secondary);">Privacy Policy</a> | <a href="terms-of-service.html" target="_blank" style="color: var(--secondary);">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+
+        if (mobileMenuBtn && mobileNav) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileNav.classList.toggle('active');
+                mobileMenuBtn.innerHTML = mobileNav.classList.contains('active')
+                    ? '<i class="fas fa-times"></i>'
+                    : '<i class="fas fa-bars"></i>';
+            });
+
+            document.querySelectorAll('#mobileNav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+        }
+
+        // Blog Posts Data with unique file names and search relevance
+        const blogPosts = [
+            {
+                id: 1,
+                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                category: "Resume Writing",
+                categoryClass: "resume",
+                title: "7 Resume Mistakes That Are Costing You Interviews",
+                excerpt: "Discover the most common resume errors that recruiters spot immediately and learn how to fix them to get more interview calls.",
+                date: "March 15, 2024",
+                tags: ["resume", "cv", "mistakes", "errors", "interview", "job search", "career"],
+                searchPriority: 10,
+                fileName: "blog/7-resume-mistakes.html"
+            },
+            {
+                id: 2,
+                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                category: "LinkedIn Optimization",
+                categoryClass: "linkedin",
+                title: "How to Optimize Your LinkedIn Profile for Recruiters",
+                excerpt: "Transform your LinkedIn profile into a job magnet with these proven strategies that make recruiters reach out to you.",
+                date: "March 10, 2024",
+                tags: ["linkedin", "social media", "recruiter", "profile", "optimization"],
+                searchPriority: 8,
+                fileName: "blog/linkedin-profile-optimization.html"
+            },
+            {
+                id: 3,
+                image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                category: "Interview Tips",
+                categoryClass: "interview",
+                title: "Answering 'Tell Me About Yourself' Like a Pro",
+                excerpt: "Master the most common interview question with our structured approach that showcases your value in just 2 minutes.",
+                date: "March 5, 2024",
+                tags: ["interview", "questions", "preparation", "skills", "tell me about yourself"],
+                searchPriority: 9,
+                fileName: "tell-me-about-yourself-interview.html"
+            },
+            {
+                id: 4,
+                image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                category: "Job Search Strategy",
+                categoryClass: "",
+                title: "The Hidden Job Market: How to Find Unadvertised Roles",
+                excerpt: "Learn how to tap into the 70% of jobs that are never advertised publicly and gain a competitive advantage.",
+                date: "February 28, 2024",
+                tags: ["job search", "strategy", "hidden jobs", "networking", "unadvertised"],
+                searchPriority: 7,
+                fileName: "hidden-job-market.html"
+            },
+            {
+                id: 5,
+                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                category: "Career Transition",
+                categoryClass: "",
+                title: "How to Successfully Change Careers in Your 30s and 40s",
+                excerpt: "A step-by-step guide to transitioning to a new industry without starting from scratch.",
+                date: "February 20, 2024",
+                tags: ["career change", "transition", "mid-career", "skills", "30s", "40s"],
+                searchPriority: 6,
+                fileName: "career-change-30s-40s.html"
+            },
+            {
+                id: 6,
+                image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                category: "Negotiation",
+                categoryClass: "",
+                title: "Salary Negotiation: How to Get Paid What You're Worth",
+                excerpt: "Learn the art of negotiation and increase your starting salary by 15-30% with these proven techniques.",
+                date: "February 15, 2024",
+                tags: ["salary", "negotiation", "compensation", "money", "pay", "raise"],
+                searchPriority: 8,
+                fileName: "salary-negotiation-tips.html"
+            },
+            {
+                id: 7,
+                image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                category: "Resume Writing",
+                categoryClass: "resume",
+                title: "ATS-Friendly Resumes: Beat the Bots in 2024",
+                excerpt: "Learn how to optimize your resume for Applicant Tracking Systems used by 95% of Fortune 500 companies.",
+                date: "February 10, 2024",
+                tags: ["ats", "resume", "applicant tracking", "technology", "bots", "optimize"],
+                searchPriority: 9,
+                fileName: "ats-friendly-resumes.html"
+            },
+            {
+                id: 8,
+                image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                category: "Interview Tips",
+                categoryClass: "interview",
+                title: "Behavioral Interview Questions: The STAR Method Explained",
+                excerpt: "Master the STAR technique to answer behavioral questions confidently and impress hiring managers.",
+                date: "February 5, 2024",
+                tags: ["star method", "behavioral", "interview", "questions", "technique"],
+                searchPriority: 8,
+                fileName: "star-method-interview.html"
+            },
+            {
+                id: 9,
+                image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                category: "Networking",
+                categoryClass: "networking",
+                title: "Effective Networking Strategies for Introverts",
+                excerpt: "Discover comfortable ways to build professional relationships without feeling overwhelmed or inauthentic.",
+                date: "January 28, 2024",
+                tags: ["networking", "introverts", "relationships", "professional", "social"],
+                searchPriority: 6,
+                fileName: "networking-for-introverts.html"
+            },
+            {
+                id: 10,
+                image: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                category: "Career Development",
+                categoryClass: "",
+                title: "5 Skills That Will Future-Proof Your Career",
+                excerpt: "Discover the essential skills you need to develop to stay relevant in the rapidly changing job market.",
+                date: "January 20, 2024",
+                tags: ["skills", "future", "career development", "learning", "growth"],
+                searchPriority: 7,
+                fileName: "future-proof-career-skills.html"
+            },
+            {
+                id: 11,
+                image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                category: "Job Search Strategy",
+                categoryClass: "",
+                title: "How to Create a 30-60-90 Day Plan for Interviews",
+                excerpt: "Learn how to impress hiring managers with a concrete plan for your first 90 days on the job.",
+                date: "January 15, 2024",
+                tags: ["plan", "interview", "strategy", "preparation", "30-60-90"],
+                searchPriority: 6,
+                fileName: "30-60-90-day-plan.html"
+            },
+            {
+                id: 12,
+                image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                category: "Interview Tips",
+                categoryClass: "interview",
+                title: "Virtual Interview Success: Tips for Video Call Interviews",
+                excerpt: "Master the art of virtual interviews with these essential tips for lighting, background, and communication.",
+                date: "January 10, 2024",
+                tags: ["virtual", "video", "interview", "remote", "online", "zoom"],
+                searchPriority: 7,
+                fileName: "virtual-interview-tips.html"
+            }
+        ];
+
+        // DOM Elements
+        const blogGrid = document.getElementById('blogGrid');
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        const searchInput = document.getElementById('searchInput');
+        const autocompleteDropdown = document.getElementById('autocompleteDropdown');
+        const searchResultsInfo = document.getElementById('searchResultsInfo');
+
+        // State
+        let displayedPosts = 6;
+        let currentSearchTerm = '';
+        let currentFilteredPosts = [];
+
+        // Debounce function for search
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Initialize
+        function init() {
+            // Sort by search priority (highest first) and then by date (newest first)
+            currentFilteredPosts = [...blogPosts].sort((a, b) => {
+                if (b.searchPriority !== a.searchPriority) {
+                    return b.searchPriority - a.searchPriority;
+                }
+                return new Date(b.date) - new Date(a.date);
+            });
+            renderBlogGrid(currentFilteredPosts.slice(0, displayedPosts));
+            updateResultsInfo(currentFilteredPosts.length);
+            
+            // Show load more button only if there are more posts
+            loadMoreBtn.style.display = currentFilteredPosts.length > displayedPosts ? 'block' : 'none';
+        }
+
+        // Render blog grid
+        function renderBlogGrid(posts) {
+            blogGrid.innerHTML = '';
+            
+            if (posts.length === 0) {
+                blogGrid.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
+                        <i class="fas fa-search" style="font-size: 48px; color: var(--gray-light); margin-bottom: 20px;"></i>
+                        <h3 style="color: var(--gray); margin-bottom: 10px;">No articles found</h3>
+                        <p style="color: var(--gray);">Try adjusting your search terms or browse our popular topics</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            posts.forEach(post => {
+                const blogCard = document.createElement('a');
+                blogCard.className = 'blog-card';
+                blogCard.href = post.fileName;
+                
+                blogCard.innerHTML = `
+                    <img src="${post.image}" alt="${post.title}" class="blog-card-img">
+                    <div class="blog-card-content">
+                        <span class="blog-category ${post.categoryClass}">${post.category}</span>
+                        <h3>${post.title}</h3>
+                        <p>${post.excerpt}</p>
+                        <div class="blog-meta">
+                            <span class="blog-date">${post.date}</span>
+                            <span class="blog-read-more">Read More →</span>
+                        </div>
+                    </div>
+                `;
+                
+                blogGrid.appendChild(blogCard);
+            });
+        }
+
+        // Calculate search relevance score
+        function calculateRelevanceScore(post, searchTerm) {
+            let score = 0;
+            const term = searchTerm.toLowerCase();
+            
+            // Title match (highest priority)
+            if (post.title.toLowerCase().includes(term)) {
+                score += 10;
+            }
+            
+            // Category match
+            if (post.category.toLowerCase().includes(term)) {
+                score += 8;
+            }
+            
+            // Excerpt match
+            if (post.excerpt.toLowerCase().includes(term)) {
+                score += 5;
+            }
+            
+            // Tags match
+            const tagMatches = post.tags.filter(tag => tag.toLowerCase().includes(term)).length;
+            score += tagMatches * 3;
+            
+            // Exact matches get bonus
+            if (post.title.toLowerCase() === term || 
+                post.category.toLowerCase() === term || 
+                post.tags.some(tag => tag.toLowerCase() === term)) {
+                score += 5;
+            }
+            
+            return score;
+        }
+
+        // Filter and sort posts based on search term
+        function filterPosts(searchTerm) {
+            if (!searchTerm.trim()) {
+                // Return sorted by priority and date when no search term
+                return [...blogPosts].sort((a, b) => {
+                    if (b.searchPriority !== a.searchPriority) {
+                        return b.searchPriority - a.searchPriority;
+                    }
+                    return new Date(b.date) - new Date(a.date);
+                });
+            }
+            
+            const term = searchTerm.toLowerCase();
+            const filtered = blogPosts.filter(post => {
+                return (
+                    post.title.toLowerCase().includes(term) ||
+                    post.category.toLowerCase().includes(term) ||
+                    post.excerpt.toLowerCase().includes(term) ||
+                    post.tags.some(tag => tag.toLowerCase().includes(term))
+                );
+            });
+            
+            // Sort by relevance score and date
+            return filtered.sort((a, b) => {
+                const scoreA = calculateRelevanceScore(a, term);
+                const scoreB = calculateRelevanceScore(b, term);
+                
+                if (scoreB !== scoreA) {
+                    return scoreB - scoreA; // Higher score first
+                }
+                
+                // If scores are equal, sort by date (newest first)
+                return new Date(b.date) - new Date(a.date);
+            });
+        }
+
+        // Update results info
+        function updateResultsInfo(totalPosts) {
+            const showing = Math.min(displayedPosts, totalPosts);
+            searchResultsInfo.innerHTML = `Showing <strong>${showing}</strong> of <strong>${totalPosts}</strong> articles`;
+            
+            if (currentSearchTerm) {
+                searchResultsInfo.innerHTML += ` for "<strong>${currentSearchTerm}</strong>"`;
+            }
+        }
+
+        // Show auto-complete suggestions
+        function showAutocompleteSuggestions(searchTerm) {
+            autocompleteDropdown.innerHTML = '';
+            
+            if (!searchTerm.trim()) {
+                autocompleteDropdown.style.display = 'none';
+                return;
+            }
+            
+            const suggestions = filterPosts(searchTerm).slice(0, 5);
+            
+            if (suggestions.length === 0) {
+                autocompleteDropdown.innerHTML = '<div class="no-results">No matching articles found</div>';
+                autocompleteDropdown.style.display = 'block';
+                return;
+            }
+            
+            suggestions.forEach((post, index) => {
+                const item = document.createElement('div');
+                item.className = 'autocomplete-item';
+                item.dataset.index = index;
+                
+                item.innerHTML = `
+                    <div class="autocomplete-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div>
+                        <div class="autocomplete-title">${post.title}</div>
+                        <div class="autocomplete-category">${post.category}</div>
+                    </div>
+                `;
+                
+                item.addEventListener('click', () => {
+                    // Redirect to the specific blog post page
+                    window.location.href = post.fileName;
+                });
+                
+                autocompleteDropdown.appendChild(item);
+            });
+            
+            autocompleteDropdown.style.display = 'block';
+        }
+
+        // Perform search
+        function performSearch(searchTerm) {
+            currentSearchTerm = searchTerm;
+            currentFilteredPosts = filterPosts(searchTerm);
+            
+            if (searchTerm.trim()) {
+                // When searching, show all filtered results
+                displayedPosts = currentFilteredPosts.length;
+                loadMoreBtn.style.display = 'none';
+            } else {
+                // When no search, show limited results with load more
+                displayedPosts = 6;
+                loadMoreBtn.style.display = currentFilteredPosts.length > displayedPosts ? 'block' : 'none';
+            }
+            
+            renderBlogGrid(currentFilteredPosts.slice(0, displayedPosts));
+            updateResultsInfo(currentFilteredPosts.length);
+        }
+
+        // Event Listeners
+        if (searchInput) {
+            // Input event for auto-complete
+            searchInput.addEventListener('input', (e) => {
+                const term = e.target.value;
+                showAutocompleteSuggestions(term);
+                
+                // Use debounced search for grid update
+                debouncedSearch(term);
+            });
+            
+            // Focus event
+            searchInput.addEventListener('focus', () => {
+                if (searchInput.value.trim()) {
+                    showAutocompleteSuggestions(searchInput.value);
+                }
+            });
+            
+            // Keyboard navigation in auto-complete
+            searchInput.addEventListener('keydown', (e) => {
+                const items = autocompleteDropdown.querySelectorAll('.autocomplete-item');
+                const activeItem = autocompleteDropdown.querySelector('.autocomplete-item.active');
+                let activeIndex = activeItem ? parseInt(activeItem.dataset.index) : -1;
+                
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    if (items.length > 0) {
+                        if (activeItem) activeItem.classList.remove('active');
+                        activeIndex = (activeIndex + 1) % items.length;
+                        items[activeIndex].classList.add('active');
+                    }
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    if (items.length > 0) {
+                        if (activeItem) activeItem.classList.remove('active');
+                        activeIndex = activeIndex <= 0 ? items.length - 1 : activeIndex - 1;
+                        items[activeIndex].classList.add('active');
+                    }
+                } else if (e.key === 'Enter') {
+                    if (activeItem) {
+                        e.preventDefault();
+                        const post = currentFilteredPosts[activeIndex];
+                        window.location.href = post.fileName;
+                    } else if (searchInput.value.trim()) {
+                        performSearch(searchInput.value);
+                        autocompleteDropdown.style.display = 'none';
+                    }
+                } else if (e.key === 'Escape') {
+                    autocompleteDropdown.style.display = 'none';
+                }
+            });
+        }
+
+        // Click outside to close auto-complete
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !autocompleteDropdown.contains(e.target)) {
+                autocompleteDropdown.style.display = 'none';
+            }
+        });
+
+        // Load more functionality
+        if (loadMoreBtn) {
+            loadMoreBtn.addEventListener('click', () => {
+                displayedPosts += 3;
+                renderBlogGrid(currentFilteredPosts.slice(0, displayedPosts));
+                updateResultsInfo(currentFilteredPosts.length);
+                
+                if (displayedPosts >= currentFilteredPosts.length) {
+                    loadMoreBtn.style.display = 'none';
+                }
+            });
+        }
+
+        // Debounced search function
+        const debouncedSearch = debounce((term) => {
+            performSearch(term);
+        }, 300);
+
+        // Popular search terms
+        const popularSearches = [
+            { term: "resume", icon: "fa-file-alt" },
+            { term: "interview", icon: "fa-comments" },
+            { term: "linkedin", icon: "fa-linkedin" },
+            { term: "salary", icon: "fa-money-bill" },
+            { term: "career change", icon: "fa-exchange-alt" }
+        ];
+        
+        // Add popular search chips
+        function addPopularSearches() {
+            const searchContainer = document.querySelector('.search-container');
+            const popularContainer = document.createElement('div');
+            popularContainer.className = 'popular-searches';
+            popularContainer.style.marginTop = '15px';
+            popularContainer.style.display = 'flex';
+            popularContainer.style.flexWrap = 'wrap';
+            popularContainer.style.gap = '8px';
+            popularContainer.style.justifyContent = 'center';
+            
+            popularSearches.forEach(item => {
+                const chip = document.createElement('span');
+                chip.innerHTML = `<i class="fas ${item.icon}"></i> ${item.term}`;
+                chip.style.cursor = 'pointer';
+                chip.style.padding = '6px 12px';
+                chip.style.backgroundColor = 'rgba(124, 58, 237, 0.1)';
+                chip.style.color = 'var(--primary)';
+                chip.style.borderRadius = '20px';
+                chip.style.fontSize = '14px';
+                chip.style.transition = 'all 0.3s';
+                chip.style.display = 'flex';
+                chip.style.alignItems = 'center';
+                chip.style.gap = '5px';
+                
+                chip.addEventListener('mouseenter', () => {
+                    chip.style.backgroundColor = 'var(--primary)';
+                    chip.style.color = 'white';
+                });
+                
+                chip.addEventListener('mouseleave', () => {
+                    chip.style.backgroundColor = 'rgba(124, 58, 237, 0.1)';
+                    chip.style.color = 'var(--primary)';
+                });
+                
+                chip.addEventListener('click', () => {
+                    searchInput.value = item.term;
+                    performSearch(item.term);
+                    showAutocompleteSuggestions(item.term);
+                });
+                
+                popularContainer.appendChild(chip);
+            });
+            
+            searchContainer.appendChild(popularContainer);
+        }
+
+        // Initialize everything
+        window.addEventListener('DOMContentLoaded', () => {
+            init();
+            addPopularSearches();
+            
+            // Smooth Scroll for Navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', e => {
+                    const target = document.querySelector(anchor.getAttribute('href'));
+                    if (!target) return;
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: target.offsetTop - 90,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Check for URL search parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchParam = urlParams.get('search');
+            if (searchParam) {
+                searchInput.value = searchParam;
+                performSearch(searchParam);
+                showAutocompleteSuggestions(searchParam);
+            }
+        });
+    </script>
+</body>
+</html>
