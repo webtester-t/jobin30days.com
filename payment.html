@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment | 7-Day Job Search Program | JOB IN 30 DAYS™</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@700;800;900&display=swap" rel="stylesheet">
+
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Payment - 7-Day Job Search Program | JOB IN 30 DAYS™",
+        "description": "Complete your payment for the 7-Day Job Search Program to transform your career in just 7 days.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "JOB IN 30 DAYS",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://jobin30days.com/logo.png"
+            }
+        }
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary: #1a59ff;
+            --primary-dark: #6D28D9;
+            --primary-light: #8B5CF6;
+            --secondary: #F59E0B;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+            --gray: #6B7280;
+            --gray-light: #E5E7EB;
+            --success: #10B981;
+            --error: #EF4444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #ffffff;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: 28px;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.05) 0%, rgba(245, 158, 11, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        main::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%);
+            top: -100px;
+            right: -100px;
+        }
+        
+        main::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.08) 0%, rgba(245, 158, 11, 0.08) 100%);
+            bottom: -50px;
+            left: -50px;
+        }
+        
+        .payment-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        @media (max-width: 992px) {
+            .payment-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Order Summary */
+        .order-summary {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--primary);
+        }
+        
+        .order-summary h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+        
+        .product-details {
+            margin-bottom: 30px;
+        }
+        
+        .product-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .product-description {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .price-breakdown {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .price-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .price-item.total {
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--primary);
+        }
+        
+        .price-item.discount {
+            color: var(--success);
+        }
+        
+        .price-item .original-price {
+            text-decoration: line-through;
+            color: var(--gray);
+        }
+        
+        /* Payment Box */
+        .payment-box {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--secondary);
+        }
+        
+        .payment-box h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+        
+        .secure-payment {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            color: var(--success);
+            font-weight: 600;
+        }
+        
+        .secure-payment i {
+            font-size: 20px;
+        }
+        
+        /* Terms & Conditions */
+        .terms-container {
+            margin-bottom: 30px;
+        }
+        
+        .terms-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        
+        .terms-header h3 {
+            font-size: 20px;
+            color: var(--dark);
+        }
+        
+        .terms-header i {
+            color: var(--primary);
+            transition: transform 0.3s;
+        }
+        
+        .terms-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            border: 1px solid transparent;
+            border-radius: 8px;
+        }
+        
+        .terms-content.active {
+            max-height: 500px;
+            border-color: var(--gray-light);
+            padding: 20px;
+            background-color: var(--light);
+        }
+        
+        .terms-list {
+            list-style-type: none;
+        }
+        
+        .terms-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .terms-list li:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        /* Checkbox */
+        .checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .checkbox-container input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 3px;
+            accent-color: var(--primary);
+        }
+        
+        .checkbox-container label {
+            font-size: 16px;
+            color: var(--dark);
+        }
+        
+        .checkbox-container label a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        /* Payment Button */
+        .payment-btn {
+            display: block;
+            width: 100%;
+            background-color: var(--primary);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 20px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .payment-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(124, 58, 237, 0.2);
+        }
+        
+        .payment-btn:disabled {
+            background-color: var(--gray);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .payment-btn i {
+            margin-right: 10px;
+        }
+        
+        .razorpay-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            gap: 10px;
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .razorpay-logo img {
+            height: 20px;
+        }
+        
+        /* Payment Methods */
+        .payment-methods {
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .payment-methods h4 {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: var(--gray);
+        }
+        
+        .payment-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .payment-icon {
+            width: 50px;
+            height: 30px;
+            background-color: var(--light);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            font-size: 20px;
+        }
+        
+        /* Guarantee Badge */
+        .guarantee-badge {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: rgba(16, 185, 129, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        .guarantee-badge i {
+            font-size: 30px;
+            color: var(--success);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 30px;
+            margin-top: auto;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: 28px;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo span {
+            color: var(--secondary);
+        }
+        
+        .footer-links h4 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links ul li a {
+            color: #D1D5DB;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links ul li a:hover {
+            color: white;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: none;
+            z-index: 999;
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+        }
+        
+        .mobile-nav ul li {
+            margin-bottom: 15px;
+        }
+        
+        .mobile-nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 18px;
+            display: block;
+            padding: 3px 0;
+        }
+        
+        .mobile-nav a:hover {
+            background-color: var(--gray-light);
+            padding: 5px;
+        }
+        
+        /* Responsive Styles */
+
+        @media (max-width: 992px){
+            .nav-links {
+                display: none;
+                }
+                    
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            
+            
+            main {
+                padding: 140px 0 80px;
+            }
+            
+            .order-summary,
+            .payment-box {
+                padding: 30px 20px;
+            }
+            
+            .order-summary h2,
+            .payment-box h2 {
+                font-size: 28px;
+            }
+            
+            .product-title {
+                font-size: 20px;
+            }
+            
+            .payment-btn {
+                padding: 18px;
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .order-summary h2,
+            .payment-box h2 {
+                font-size: 24px;
+            }
+            
+            .price-breakdown {
+                padding: 20px 15px;
+            }
+            
+            .guarantee-badge {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">JOB IN <span>30</span> DAYS™</a>
+            
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html#workshop">Workshop</a></li>
+                    <li><a href="index.html#program">Program</a></li>
+                    <li><a href="index.html#testimonials">Testimonials</a></li>
+                    <li><a href="index.html#mentor">Connect</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="blog-search.html" target="_blank">Blog</a></li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="index.html#workshop">Workshop</a></li>
+                <li><a href="index.html#program">Program</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+                <li><a href="index.html#mentor">Connect</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+                <li><a href="blog-search.html" target="_blank">Blog</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="payment-container">
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h2>Order Summary</h2>
+                    
+                    <div class="product-details">
+                        <div class="product-title">7-Day Job Search Program</div>
+                        <div class="product-description">Transform your career in just 7 days with our intensive job search program. Master the job search process with proven strategies to land your dream job in 30 days.</div>
+                    </div>
+                    
+                    <div class="price-breakdown">
+                        <div class="price-item">
+                            <span>Program Fee</span>
+                            <span class="original-price">₹25,000</span>
+                        </div>
+                        
+                        <div class="price-item discount">
+                            <span>Limited Time Discount</span>
+                            <span>- ₹16,000</span>
+                        </div>
+                        
+                        <!-- <div class="price-item">
+                            <span>Taxes & Fees</span>
+                            <span>₹0</span>
+                        </div> -->
+                        
+                        <div class="price-item total">
+                            <span>Total Amount</span>
+                            <span>₹9,000</span>
+                        </div>
+                    </div>
+                    
+                    <div class="guarantee-badge">
+                        <i class="fas fa-bell-slash"></i> <!-- fa-shield-alt -->
+                        <div>
+                            <h4>This is not a Job Guarantee</h4>
+                            <p>This program is designed to help you secure a job, but it does not guarantee a job. Your preparation is the key to success.*</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Payment Box -->
+                <div class="payment-box">
+                    <h2>Complete Your Payment</h2>
+                    
+                    <div class="secure-payment">
+                        <i class="fas fa-lock"></i>
+                        <span>Secure Payment Encrypted</span>
+                    </div>
+                    
+                    <!-- Terms & Conditions -->
+                    <div class="terms-container">
+                        <div class="terms-header" id="termsToggle">
+                            <h3>Terms & Conditions</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        
+                        <div class="terms-content" id="termsContent">
+                            <ul class="terms-list">
+                                <li>This program is an intensive 7-day career transformation workshop designed to accelerate your job search process.</li>
+                                <li>The program fee is non-refundable except under the conditions outlined in the terms & conditions.</li>
+                                <li>Participants will be attending one-on-one mentorship sessions.</li>
+                                <li>Session timings will be scheduled based on mutual convenience and availability.</li>
+                                <li>JOB IN 30 DAYS™ reserves the right to refuse service to anyone for any reason at any time.</li>
+                                <li>You agree to receive program-related communications via email and WhatsApp.</li>
+                                <li>All payments are processed securely through Razorpay. We do not store your payment details.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Agreement Checkbox  id="termsLink" -->
+                    <div class="checkbox-container" >
+                        <input type="checkbox" id="agreeTerms" name="agreeTerms">
+                        <label for="agreeTerms">
+                            I have read and agree to the <a href="terms-of-service.html" target="_blank" >Terms & Conditions</a> and <a href="privacy-policy.html" target="_blank">Privacy Policy</a>. I understand that this is a non-refundable purchase except under the satisfaction guarantee conditions.
+                        </label>
+                    </div>
+                    
+                    <!-- Payment Button -->
+                    <button class="payment-btn" id="paymentButton" disabled>
+                        <i class="fas fa-lock"></i> Pay Securely - ₹9,000
+                    </button>
+                    
+                    <div class="razorpay-logo">
+                        <span>Powered by</span>
+                        <span style="color: #0C2451; font-weight: bold;">RAZORPAY</span>
+                    </div>
+                    
+                    <!-- Payment Methods -->
+                    <div class="payment-methods">
+                        <h4>We Accept</h4>
+                        <div class="payment-icons">
+                            <div class="payment-icon">
+                                <i class="fab fa-cc-visa"></i>
+                            </div>
+                            <div class="payment-icon">
+                                <i class="fab fa-cc-mastercard"></i>
+                            </div>
+                            <div class="payment-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="payment-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="payment-icon">
+                                <i class="fab fa-google-pay"></i>
+                            </div>
+                            <div class="payment-icon">
+                                <i class="fab fa-amazon-pay"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">JOB IN <span>30</span> DAYS™</div>
+                    <p>Transform your career with our proven strategies and tools.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4><br>
+                    <ul style="list-style: none; color: #D1D5DB;">
+                        <li><a href="index.html" style="color: #D1D5DB; text-decoration: none;">Home</a></li>
+                        <li><a href="index.html#workshop" style="color: #D1D5DB; text-decoration: none;">Workshop</a></li>
+                        <li><a href="blog-search.html" target="_blank" style="color: #D1D5DB; text-decoration: none;">Blog</a></li>
+                        <li><a href="privacy-policy.html" target="_blank" style="color: #D1D5DB; text-decoration: none;">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html" target="_blank" style="color: #D1D5DB; text-decoration: none;">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Need Help?</h4><br>
+                    <ul style="list-style: none; color: #D1D5DB;">
+                        <li><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/9479707382" style="color: #D1D5DB; text-decoration: none;">Chat Now</a></li>
+                        <li><i class="fas fa-phone"></i> +91-9479707382</li>
+                        <li>Mon-Fri: 10AM-6PM</li>
+                    </ul>
+                </div>
+                            <div><h4>Connect with us</h4><br>
+                                <div class="social-icons" style="margin-bottom: 20px;">
+                        <a href="https://www.linkedin.com/company/jobin30dayscom/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/jobin30days" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/@jobin30days" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/jobin30days/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.whatsapp.com/channel/0029VaG8J897T8bSGhJo8L0y" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+            </div></div>
+            <div class="copyright">
+                <p>&copy; 2022-2026 JOB IN 30 DAYS™. All rights reserved. | <a href="privacy-policy.html" target="_blank" style="color: var(--secondary);">Privacy Policy</a> | <a href="terms-of-service.html" target="_blank" style="color: var(--secondary);">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+        /* =====================
+           MOBILE MENU
+        ===================== */
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+
+        if (mobileMenuBtn && mobileNav) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileNav.classList.toggle('active');
+                mobileMenuBtn.innerHTML = mobileNav.classList.contains('active')
+                    ? '<i class="fas fa-times"></i>'
+                    : '<i class="fas fa-bars"></i>';
+            });
+
+            document.querySelectorAll('#mobileNav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+        }
+
+        /* =====================
+           TERMS & CONDITIONS TOGGLE
+        ===================== */
+        const termsToggle = document.getElementById('termsToggle');
+        const termsContent = document.getElementById('termsContent');
+        const termsLink = document.getElementById('termsLink');
+
+        if (termsToggle && termsContent) {
+            termsToggle.addEventListener('click', () => {
+                termsContent.classList.toggle('active');
+                const icon = termsToggle.querySelector('i');
+                icon.style.transform = termsContent.classList.contains('active') 
+                    ? 'rotate(180deg)' 
+                    : 'rotate(0deg)';
+            });
+            
+            // Also toggle when clicking the link in checkbox label
+            if (termsLink) {
+                termsLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    termsContent.classList.toggle('active');
+                    const icon = termsToggle.querySelector('i');
+                    icon.style.transform = termsContent.classList.contains('active') 
+                        ? 'rotate(180deg)' 
+                        : 'rotate(0deg)';
+                });
+            }
+        }
+
+        /* =====================
+           TERMS CHECKBOX VALIDATION
+        ===================== */
+        const agreeCheckbox = document.getElementById('agreeTerms');
+        const paymentButton = document.getElementById('paymentButton');
+
+        if (agreeCheckbox && paymentButton) {
+            agreeCheckbox.addEventListener('change', () => {
+                paymentButton.disabled = !agreeCheckbox.checked;
+                
+                if (agreeCheckbox.checked) {
+                    paymentButton.style.backgroundColor = 'var(--primary)';
+                    paymentButton.style.cursor = 'pointer';
+                } else {
+                    paymentButton.style.backgroundColor = 'var(--gray)';
+                    paymentButton.style.cursor = 'not-allowed';
+                }
+            });
+        }
+
+        /* =====================
+           PAYMENT BUTTON FUNCTIONALITY
+        ===================== */
+        if (paymentButton) {
+            paymentButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Check if terms are agreed
+                if (!agreeCheckbox.checked) {
+                    alert('Please agree to the Terms & Conditions before proceeding with payment.');
+                    agreeCheckbox.focus();
+                    return;
+                }
+                
+                // Show loading state
+                const originalText = this.innerHTML;
+                this.innerHTML = '<span class="loading"></span> Processing...';
+                this.disabled = true;
+                
+                // Simulate processing delay (in real implementation, this would be the Razorpay redirect)
+                setTimeout(() => {
+                    // Redirect to Razorpay payment link
+                    window.location.href = 'https://pages.razorpay.com/7-day-job-search-program';
+                }, 1500);
+                
+                // Track payment initiation (for analytics)
+                console.log('Payment initiated for 7-Day Job Search Program');
+                
+                // In a real implementation, you might want to:
+                // 1. Create a Razorpay order via your backend
+                // 2. Open Razorpay checkout
+                // 3. Handle payment success/failure callbacks
+                
+                /* Example Razorpay integration code:
+                
+                var options = {
+                    "key": "YOUR_RAZORPAY_KEY_ID",
+                    "amount": "900000", // Amount in paise (₹9,000 * 100)
+                    "currency": "INR",
+                    "name": "JOB IN 30 DAYS™",
+                    "description": "7-Day Job Search Program",
+                    "image": "https://jobin30days.com/logo.png",
+                    "handler": function (response){
+                        // Handle success
+                        alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+                        // Redirect to success page or program access page
+                        window.location.href = "payment-success.html";
+                    },
+                    "prefill": {
+                        "name": "Customer Name",
+                        "email": "customer@example.com",
+                        "contact": "9999999999"
+                    },
+                    "notes": {
+                        "program": "7-Day Job Search Program"
+                    },
+                    "theme": {
+                        "color": "#1a59ff"
+                    }
+                };
+                
+                var rzp1 = new Razorpay(options);
+                rzp1.open();
+                
+                */
+            });
+        }
+
+        /* =====================
+           AUTO-SCROLL TO TERMS ON PAGE LOAD IF CHECKBOX NOT CHECKED
+        ===================== */
+        window.addEventListener('load', () => {
+            // If checkbox is not checked after 3 seconds, scroll to terms
+            setTimeout(() => {
+                if (agreeCheckbox && !agreeCheckbox.checked) {
+                    termsContent.classList.add('active');
+                    const icon = termsToggle.querySelector('i');
+                    icon.style.transform = 'rotate(180deg)';
+                    
+                    // Smooth scroll to terms
+                    termsToggle.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }
+            }, 3000);
+        });
+
+        /* =====================
+           COPYRIGHT YEAR UPDATE
+        ===================== 
+        document.addEventListener('DOMContentLoaded', () => {
+            const copyrightElements = document.querySelectorAll('.copyright p');
+            const currentYear = new Date().getFullYear();
+            
+            copyrightElements.forEach(element => {
+                element.innerHTML = element.innerHTML.replace(/2022-2024/g, `2022-${currentYear}`);
+            });
+        });
+*/
+        /* =====================
+           CONSOLE WELCOME MESSAGE
+        ===================== */
+        console.log(
+            `%cJOB IN 30 DAYS™ - Payment Page\n%cSecure payment processing for the 7-Day Job Search Program`,
+            'color: #1a59ff; font-size: 18px; font-weight: bold;',
+            'color: #6B7280; font-size: 14px;'
+        );
+
+        /* =====================
+           ESC KEY TO CLOSE TERMS
+        ===================== */
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && termsContent && termsContent.classList.contains('active')) {
+                termsContent.classList.remove('active');
+                const icon = termsToggle.querySelector('i');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        });
+
+        /* =====================
+           PAYMENT PAGE VISIBILITY TRACKING
+        ===================== */
+        let timeOnPage = 0;
+        setInterval(() => {
+            timeOnPage++;
+            
+            // If user spends 120 seconds on page without agreeing to terms, show reminder
+            if (timeOnPage === 120 && agreeCheckbox && !agreeCheckbox.checked) {
+                const reminder = confirm("Don't miss out on transforming your career! Please review and agree to the terms to complete your payment.");
+                if (reminder) {
+                    termsToggle.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }, 1000);
+    </script>
+    <script src="/assets/block-command.js"></script>
+</body>
+</html>
