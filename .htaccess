@@ -1,0 +1,14 @@
+<IfModule mod_expires>
+    ExpiresActive On
+    # Set default expires time for all files in this directory 
+    # to 0 (meaning they always expire immediately)
+    ExpiresDefault "access plus 0 seconds"
+    
+    # Enable caching for specific file types
+    ExpiresByType image/jpeg "access plus 1 week"
+    ExpiresByType image/png "access plus 1 week"
+    ExpiresByType image/gif "access plus 1 week"
+    ExpiresByType text/css "access plus 1 day"
+    ExpiresByType application/javascript "access plus 1 day"
+    ExpiresByType image/x-icon "access plus 1 month"
+</IfModule>
