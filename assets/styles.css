@@ -493,11 +493,21 @@
             color: var(--primary);
             margin-bottom: 20px;
         }
-        
+
         .mentor-info p {
             margin-bottom: 25px;
             color: var(--gray);
             font-size: 17px;
+        }
+
+        .mentor-info li {
+            margin-bottom: 25px;
+            color: var(--gray);
+            font-size: 17px;
+        }
+
+        .mentor-info ul {
+            padding-left: 5%;
         }
         
         .mentor-social {
