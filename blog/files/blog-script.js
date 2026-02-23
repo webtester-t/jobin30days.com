@@ -166,7 +166,7 @@
             },
             {
                 id: 13,
-                image: "../../../../assets/images/9-career-options-after-ba.jpg",
+                image: "../../../../assets/images/9-career-options-after-ba.png",
                 category: "Career Development",
                 categoryClass: "",
                 title: "9 Career Options After B.A. (Bachelor of Arts)",
@@ -560,3 +560,4 @@
             }
 
         });
+
