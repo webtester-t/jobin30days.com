@@ -163,6 +163,18 @@
                 tags: ["virtual", "video", "interview", "remote", "online", "zoom"],
                 searchPriority: 7,
                 fileName: "blog/virtual-interview-tips.html"
+            },
+            {
+                id: 13,
+                image: "../../../../assets/images/9-career-options-after-ba.jpg",
+                category: "Career Development",
+                categoryClass: "",
+                title: "9 Career Options After B.A. (Bachelor of Arts)",
+                excerpt: "Key Job Opportunities After B.A..",
+                date: "February 23, 2026",
+                tags: ["graduate", "Bachelor of Arts", "Jobs after Graduation", "career options"],
+                searchPriority: 7,
+                fileName: "blog/9-career-options-after-ba.html"
             }
         ];
 
@@ -546,4 +558,5 @@
                 performSearch(searchParam);
                 showAutocompleteSuggestions(searchParam);
             }
+
         });
